@@ -121,7 +121,7 @@ Use cases
  Interface and you dont want to recode stuff you already have you can
  use this library to create a CLI and integrate your existing code/functions. 
  
- This library helps in quick bootstrapping of CLI. No noeed of writting 
+ This library helps in quick bootstrapping of CLI. No need of writting 
  the boilerplate for your commands, YAML configuration saves, writing 
  code and testing the same. 
 
