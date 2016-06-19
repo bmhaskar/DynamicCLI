@@ -1,0 +1,16 @@
+command: 'foo <requiredArg> [optionalArg]'
+option:
+  optionName: "-v"
+  description: "Option description"
+description: 'Outputs "bar"'
+alias: 'fooseball'
+action: !!js/function >
+          function (args, cb) {
+
+            this.parent.generateData(args);
+            console.log( 'Wow! JS-YAML Rocks!', args);
+
+            cb();
+          }
+
+
