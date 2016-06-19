@@ -10,6 +10,55 @@ inside command executing function i.e. inside action.
 Its work in progress, I am yet to integrate all possible vorpal options
 via YAML config. 
 
+## Installation
+
+To install it via npm, mention it in package.json shown below
+```json
+ "dependencies": {
+    "dynamic_cli_creator" : "git://github.com/bmhaskar/DynamicCLI.git#master"
+  }
+```
+
+Import it via ES6 syntax like 
+```javascript
+import  DynamicCLI from 'dynamic_cli_creator';
+```
+
+## How to use
+
+To create CLI, create an instance of imported class i.e. DynamicCLI with
+ props having following interface 
+ 
+```javascript
+export interface cliPropsExtensionsInterface {
+ [index:string]:{"extFunc":Function, options:Object}
+}
+export interface cliPropsInterface {
+ cliName?:string;
+ pathToCommandFiles?:string;
+ extensions?:cliPropsExtensionsInterface;
+}
+```
+
+For example 
+
+```javascript
+
+//I am using typescript in example, it does not restrict use of library 
+//to typescript, it also can be used with ES6/ES5
+
+const simulatorOptions = <cliPropsInterface> {
+    cliName: "dataSimulator",
+    pathToCommandFiles: path.resolve(__dirname , 'commands'),
+    extensions: {"dataGenerator": { "extFunc": dataGenerator, options: {name: "commentsGenerator"}}}
+} ;
+
+const dataSimulator = new DynamicCLI(simulatorOptions);
+
+
+```
+
+
 For YAML command syntax checkout the `example/commands/command.yml` 
 The interface of YAML config is as follows
 
@@ -79,5 +128,6 @@ Use cases
 
 ## TODO
 - [ ]  Add how it works
+- [ ]  Create NPM package
 - [ ]  Add tests
 - [ ]  Add code coverage
