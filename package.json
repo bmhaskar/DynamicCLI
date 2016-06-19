@@ -9,6 +9,7 @@
     "test": "test",
     "build:dev": "webpack --progress --colors --watch"
   },
+  "typings": "./index.d.ts",
   "keywords": [
     "data",
     "simulation",
