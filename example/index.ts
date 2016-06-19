@@ -6,7 +6,6 @@ import {dataGenerator} from './services/dataGenerator';
 
 import * as path from 'path';
 
-console.log(path.resolve(__dirname ,'commands'));
 const simulatorOptions = <cliPropsInterface> {
     cliName: "dataSimulator",
     pathToCommandFiles: path.resolve(__dirname , 'commands'),
@@ -16,6 +15,6 @@ const simulatorOptions = <cliPropsInterface> {
 const dataSimulator = new DynamicCLI(simulatorOptions);
 
 
-if(process && process.argv[2] == "start") {
-    dataSimulator.start();
-}
+
+dataSimulator.start();
+
