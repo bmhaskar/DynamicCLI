@@ -6,9 +6,9 @@ import {dataGenerator} from './services/dataGenerator';
 
 import * as path from 'path';
 
-console.log(path.resolve(__dirname , 'example','commands'));
+console.log(path.resolve(__dirname ,'commands'));
 const simulatorOptions = <cliPropsInterface> {
-    simulatorName: "dataSimulator",
+    cliName: "dataSimulator",
     pathToCommandFiles: path.resolve(__dirname , 'commands'),
     extensions: {"dataGenerator": { "extFunc": dataGenerator, options: {name: "commentsGenerator"}}}
 } ;
