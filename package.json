@@ -14,6 +14,10 @@
     "simulation",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmhaskar/DynamicCLI"
+  },
   "author": "Bharat Mhaskar",
   "license": "ISC",
   "dependencies": {

@@ -1,14 +1,18 @@
 # Dynamic CLI
 
 This is a [vorpal](https://github.com/dthree/vorpal/) wrapper. 
-It provides a way to dynamically configure your commands with the help of simple [yaml](http://yaml.org/) files.
+It provides a way to dynamically configure your commands with the help
+of simple [yaml](http://yaml.org/) files.
 
 It's main feature is to integration with the third party library functions, 
 inside command executing function i.e. inside action.
 
-Its work in progress, I am yet to integrate all possible vorpal options via YAML config. 
+Its work in progress, I am yet to integrate all possible vorpal options
+via YAML config. 
+
 For YAML command syntax checkout the `example/commands/command.yml` 
 The interface of YAML config is as follows
+
 ```javascript
 export interface vorpalCommandConfigInterface {
     command:commandInterface,
@@ -60,6 +64,18 @@ option:
      description: "Option2 description"
 ```
  
+ 
+ 
+Use cases
+---------
+ This can be used when your porject need to do have Command Line 
+ Interface and you dont want to recode stuff you already have you can
+ use this library to create a CLI and integrate your existing code/functions. 
+ 
+ This library helps in quick bootstrapping of CLI. No noeed of writting 
+ the boilerplate for your commands, YAML configuration saves, writing 
+ code and testing the same. 
+
 
 ## TODO
 - [ ]  Add how it works
