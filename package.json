@@ -1,6 +1,6 @@
 {
   "name": "dynamic_cli_creator",
-  "version": "1.0.0",
+  "version": "0.0.1-a",
   "description": "It creates CLI, by reading commands from YAML files and allows for integrating external libraries in command execution.",
   "main": "dist/index.js",
   "scripts": {
