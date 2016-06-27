@@ -1,7 +1,11 @@
-command: 'foo <requiredArg> [optionalArg]'
+command: 'foo <requiredArg> [optionalArg...]'
 option:
-  optionName: "-v"
-  description: "Option description"
+  -
+    optionName: "-v"
+    description: "Option description"
+  -
+    optionName: '-a, --amount <coffee>'
+    description: "Number of cups of coffee."
 description: 'Outputs "bar"'
 alias: 'fooseball'
 action: !!js/function >

@@ -21,6 +21,7 @@ export interface commandOptionsInterface {
     description?:string,
     autoComplete?:autoCompleteInterface
 }
+
 export interface optionInterface {
 
 }
@@ -58,10 +59,21 @@ export const loadCommands = function (commandFilesDirPath:string):Promise<Array<
 export const addCommandsToVorpal = function (vorpal:any, commandConfigCollection:Array<vorpalCommandConfigInterface>) {
 
     commandConfigCollection.map((commandConfig:vorpalCommandConfigInterface) => {
-
-        console.log(commandConfig);
+         
         let vorpalCommand = vorpal.command(commandConfig.command);
         vorpalCommand.action(commandConfig.action);
+
+
+        if(Array.isArray(commandConfig.option)) {
+            let options:Array<commandOptionsInterface> = commandConfig.option as Array<commandOptionsInterface>;
+            options.map((vorpalOption: commandOptionsInterface) => {
+                console.log( Object.keys(vorpalOption).map((k) => vorpalOption[k]));
+                vorpalCommand.option.apply(vorpalCommand, Object.keys(vorpalOption).map((k) => vorpalOption[k]))
+            });
+        } else {
+            vorpalCommand.option.apply(vorpalCommand, Object.keys(commandConfig.option).map((k) => commandConfig.option[k]))
+        }
+        
 
 
         let commandConfigOptions:Array<string> = ["description", "alias", "types", "validate", "cancel", "parse"];
@@ -71,6 +83,7 @@ export const addCommandsToVorpal = function (vorpal:any, commandConfigCollection
                 vorpalCommand[commandConfigOption](commandConfig[commandConfigOption]);
             }
         })
+
 
     });
 };
