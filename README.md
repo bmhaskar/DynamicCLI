@@ -12,7 +12,13 @@ via YAML config.
 
 ## Installation
 
-To install it via npm, mention it in package.json shown below
+To install it via npm
+
+```javascript
+npm install dynamic_cli_creator
+```
+ 
+ Another way is to mention it in package.json shown below
 ```json
  "dependencies": {
     "dynamic_cli_creator" : "git://github.com/bmhaskar/DynamicCLI.git#master"
