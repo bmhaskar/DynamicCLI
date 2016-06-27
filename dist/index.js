@@ -52612,9 +52612,23 @@ module.exports =
 	};
 	exports.addCommandsToVorpal = function (vorpal, commandConfigCollection) {
 	    commandConfigCollection.map(function (commandConfig) {
-	        console.log(commandConfig);
 	        var vorpalCommand = vorpal.command(commandConfig.command);
 	        vorpalCommand.action(commandConfig.action);
+	        if (Array.isArray(commandConfig.option)) {
+	            var options = commandConfig.option;
+	            options.map(function (vorpalOption) {
+	                console.log(Object.keys(vorpalOption).map(function (k) {
+	                    return vorpalOption[k];
+	                }));
+	                vorpalCommand.option.apply(vorpalCommand, Object.keys(vorpalOption).map(function (k) {
+	                    return vorpalOption[k];
+	                }));
+	            });
+	        } else {
+	            vorpalCommand.option.apply(vorpalCommand, Object.keys(commandConfig.option).map(function (k) {
+	                return commandConfig.option[k];
+	            }));
+	        }
 	        var commandConfigOptions = ["description", "alias", "types", "validate", "cancel", "parse"];
 	        commandConfigOptions.forEach(function (commandConfigOption) {
 	            if (commandConfig.hasOwnProperty(commandConfigOption)) {
