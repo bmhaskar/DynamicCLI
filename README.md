@@ -134,6 +134,6 @@ Use cases
 
 ## TODO
 - [ ]  Add how it works
-- [ ]  Create NPM package
+- [x]  Create NPM package
 - [ ]  Add tests
 - [ ]  Add code coverage
