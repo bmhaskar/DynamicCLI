@@ -140,15 +140,15 @@ const dataSimulator = new DynamicCLI(options);
 ```
 
 It accepts the [options](#how to use) overrides the defaults by the values provided.
-## Initialise vorpal 
+### Initialise vorpal 
 It initialises _vorpal_ with _cliOptions.cliName_ as delimiter and 
 [vorpal-log](https://github.com/AljoschaMeyer/vorpal-log) extension.
 
-## Next step is to intialise extensions 
+### Next step is to intialise extensions 
 
 Extensions provided via _cliOptions.extensions_ are added to vorpal instance. 
 
-## Starting the CLI
+### Starting the CLI
 
 When you call start on the _DynamicCLI_ instance as shown below. 
 ```javascript
